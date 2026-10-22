@@ -1,6 +1,6 @@
-# picklesliver
+# pthliver
 
-`picklesliver` is a small proof-of-concept generator for demonstrating Python
+`pthliver` is a small proof-of-concept generator for demonstrating Python
 `.pth` startup-file persistence during sanctioned red-team engagements and
 capture-the-flag exercises. It writes a single `.pth` file that starts an
 executable already present at an absolute path on the target system.
