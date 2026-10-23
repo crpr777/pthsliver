@@ -32,16 +32,16 @@ The generator itself has no third-party dependencies.
 ## Usage
 
 ```text
-python3 picklesliver.py /opt/lab/demo-agent --os linux -o picklesliver.pth
-python3 picklesliver.py /tmp/demo-agent --os macos -o picklesliver.pth
-python3 picklesliver.py 'C:\Lab\demo-agent.exe' --os windows -o picklesliver.pth
+python3 pthsliver.py /opt/lab/demo-agent --os linux -o pthsliver.pth
+python3 pthsliver.py /tmp/demo-agent --os macos -o pthsliver.pth
+python3 pthsliver.py 'C:\Lab\demo-agent.exe' --os windows -o pthsliver.pth
 ```
 
 The positional argument is the path **on the target**, not a path to a local
-file being packaged. `picklesliver` never copies or embeds the executable.
+file being packaged. `pthsliver` never copies or embeds the executable.
 
 Existing output files are not overwritten unless `--force` is supplied.
-Run `python3 picklesliver.py --help` for all options.
+Run `python3 pthsliver.py --help` for all options.
 
 ### macOS quarantine removal
 
@@ -49,10 +49,10 @@ Quarantine removal is opt-in. Include `--remove-quarantine` when generating the
 artifact for a macOS host:
 
 ```text
-python3 picklesliver.py /Users/Shared/demo-agent \
+python3 pthsliver.py /Users/Shared/demo-agent \
   --os macos \
   --remove-quarantine \
-  -o picklesliver.pth
+  -o pthsliver.pth
 ```
 
 This does **not** modify a file on the generator system. It embeds a call to
@@ -72,7 +72,7 @@ To confirm that removal was embedded without executing the artifact, inspect
 the generated line:
 
 ```text
-grep -F "com.apple.quarantine" picklesliver.pth
+grep -F "com.apple.quarantine" pthsliver.pth
 ```
 
 To trigger it in an authorized disposable lab, place the `.pth` file in an
@@ -88,9 +88,9 @@ control. Inspect the generated artifact before moving it anywhere:
 
 ```text
 python3 -m unittest discover -s tests -v
-python3 -m py_compile picklesliver.py
-python3 picklesliver.py /tmp/demo-agent --os linux -o /tmp/picklesliver.pth
-cat /tmp/picklesliver.pth
+python3 -m py_compile pthsliver.py
+python3 pthsliver.py /tmp/demo-agent --os linux -o /tmp/pthsliver.pth
+cat /tmp/pthsliver.pth
 ```
 
 The automated tests only inspect and compile generated text; they do not launch

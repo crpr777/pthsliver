@@ -147,8 +147,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-o",
         "--output",
-        default="picklesliver.pth",
-        help="Output filename (default: picklesliver.pth)",
+        default="pthsliver.pth",
+        help="Output filename (default: pthsliver.pth)",
     )
     parser.add_argument(
         "--remove-quarantine",
